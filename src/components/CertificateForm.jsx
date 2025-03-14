@@ -46,7 +46,7 @@ const CertificateForm = () => {
     placeOfBirth: '',
     gender: '',
     birthOrder: '',
-    
+
     fatherName: '',
     fatherAge: '',
     fatherOccupation: '',
@@ -54,7 +54,7 @@ const CertificateForm = () => {
     fatherReligion: '',
     fatherNationality: '',
     fatherAddress: '',
-    
+
     motherName: '',
     motherAge: '',
     motherOccupation: '',
@@ -62,18 +62,18 @@ const CertificateForm = () => {
     motherReligion: '',
     motherNationality: '',
     motherAddress: '',
-    
+
     previousChildren: '',
     livingChildren: '',
     specialNotes: '',
-    
+
     // Required Documents
     nonAvailabilityCert: null,
     schoolLeavingCert: null,
     jointPhotoAffidavit: null,
     passportPhotos: null,
     hospitalCertificate: null,
-    
+
     registrationDate: new Date(),
     registrationNumber: generateRegistrationNumber(),
     signature: null,
@@ -207,7 +207,7 @@ const CertificateForm = () => {
   );
 
   const renderStep = () => {
-    switch(step) {
+    switch (step) {
       case 1:
         return (
           <FormSection title="Child Information" icon={UserIcon}>
@@ -274,7 +274,7 @@ const CertificateForm = () => {
             </div>
           </FormSection>
         );
-      
+
       case 2:
         return (
           <FormSection title="Father's Information" icon={UserIcon}>
@@ -322,7 +322,7 @@ const CertificateForm = () => {
             />
           </FormSection>
         );
-      
+
       case 3:
         return (
           <FormSection title="Mother's Information" icon={UserIcon}>
@@ -421,13 +421,13 @@ const CertificateForm = () => {
                 label="Non-availability Certificate"
                 name="nonAvailabilityCert"
                 icon={DocumentDuplicateIcon}
-                // required
+              // required
               />
               <FileUploadField
                 label="School Leaving Certificate"
                 name="schoolLeavingCert"
                 icon={DocumentDuplicateIcon}
-                // required
+              // required
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -435,13 +435,13 @@ const CertificateForm = () => {
                 label="Joint Photo Affidavit"
                 name="jointPhotoAffidavit"
                 icon={DocumentDuplicateIcon}
-                // required
+              // required
               />
               <FileUploadField
                 label="Passport Size Photographs"
                 name="passportPhotos"
                 icon={PhotoIcon}
-                // required
+              // required
               />
             </div>
             <div className="mt-6">
@@ -449,12 +449,12 @@ const CertificateForm = () => {
                 label="Hospital Certificate"
                 name="hospitalCertificate"
                 icon={DocumentDuplicateIcon}
-                // required
+              // required
               />
             </div>
           </FormSection>
         );
-      
+
       case 6:
         return (
           <FormSection title="Registration Details" icon={DocumentTextIcon}>
@@ -494,7 +494,7 @@ const CertificateForm = () => {
 
       case 7:
         return renderSummary();
-      
+
       default:
         return null;
     }
@@ -523,7 +523,7 @@ const CertificateForm = () => {
             <AnimatePresence mode="wait">
               {renderStep()}
             </AnimatePresence>
-            
+
             <div className="flex justify-between mt-8">
               {step > 1 && (
                 <motion.button
@@ -536,14 +536,13 @@ const CertificateForm = () => {
                   Previous Step
                 </motion.button>
               )}
-              
+
               <motion.button
                 type="submit"
-                className={`px-6 py-3 rounded-lg ${
-                  step === steps.length
+                className={`px-6 py-3 rounded-lg ${step === steps.length
                     ? 'bg-green-500 hover:bg-green-600'
                     : 'bg-primary hover:bg-secondary'
-                } text-white transition-colors duration-200 flex items-center space-x-2 ml-auto`}
+                  } text-white transition-colors duration-200 flex items-center space-x-2 ml-auto`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
